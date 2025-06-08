@@ -1,4 +1,4 @@
-export default function Input({onChange}){
+export default function Input({value, onChange, onEnter}){
     return (
         <input style={
             {
@@ -7,8 +7,12 @@ export default function Input({onChange}){
                 borderRadius: '10px',
                 backgroundColor: 'white',
             }}
-        placeholder={'Enter a  message '}
+               value={value}
+               placeholder={'Enter a  message '}
                onChange={onChange}
+               onKeyDown={(e) =>{
+                   if(e.key === 'Enter') onEnter()
+               }}
         />
     )
 }
